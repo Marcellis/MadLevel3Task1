@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/StartFragment">
+
+    <fragment
+        android:id="@+id/StartFragment"
+        android:name="com.example.madlevel3task1.StartFragment"
+        android:label="start_fragment"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_StartFragment_to_RatingFragment"
+            app:destination="@id/RatingFragment"
+            app:enterAnim="@anim/fragment_open_enter" />
+    </fragment>
+    <fragment
+        android:id="@+id/RatingFragment"
+        android:name="com.example.madlevel3task1.RatingFragment"
+        android:label="rating_fragment"
+        tools:layout="@layout/fragment_rating">
+
+        <action
+            android:id="@+id/action_RatingFragment_to_StartFragment"
+            app:destination="@id/StartFragment" />
+
+        <action
+            android:id="@+id/action_RatingFragment_to_SummaryFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:destination="@id/SummaryFragment">
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/SummaryFragment"
+        android:name="com.example.madlevel3task1.SummeryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summery" >
+
+        <action
+            android:id="@+id/action_SummaryFragment_to_StartFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/StartFragment"
+            app:destination="@id/StartFragment" />
+        <argument
+            android:name="arg_game_name"
+            app:argType="string" />
+        <argument
+            android:name="arg_game_rating"
+            app:argType="float" />
+    </fragment>
+</navigation>
