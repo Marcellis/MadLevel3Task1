@@ -1,11 +1,10 @@
-package com.example.madlevel3task1
+package nl.hva.level3task1
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_rating.*
 
@@ -25,28 +24,27 @@ class RatingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showRandomAssessableGame()
-
-        view.findViewById<Button>(R.id.btn_to_summary).setOnClickListener {
+        btn_to_summary.setOnClickListener {
             navigateToSummary()
         }
+
+        showRandomAssessableGame()
     }
 
     private fun showRandomAssessableGame() {
-        val randomGame = listOf("Red Dead Redemption 2", "Rocket League",
+        val randomGame = listOf("Red dead Redemption 2", "Rocket League",
             "Shadow of the Tombraider").random()
 
-              txt_game.text = randomGame
+        txt_game.text = randomGame
     }
 
     private fun navigateToSummary() {
 
         val args = Bundle()
-        args.putFloat(, rb_game.rating)
+        args.putFloat(ARG_GAME_RATING, rb_game.rating)
         args.putString(ARG_GAME_NAME, txt_game.text.toString())
 
         findNavController().navigate(R.id.action_RatingFragment_to_SummaryFragment, args)
+
     }
-
-
 }
