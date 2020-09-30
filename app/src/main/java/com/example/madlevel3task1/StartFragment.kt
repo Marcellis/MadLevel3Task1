@@ -1,10 +1,11 @@
-package nl.hva.level3task1
+package com.example.madlevel3task1
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_start.*
 
@@ -25,7 +26,9 @@ class StartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_start_rating.setOnClickListener {
-            findNavController().navigate(R.id.action_StartFragment_to_RatingFragment)
+            findNavController().navigate(
+                R.id.action_startFragment_to_ratingFragment
+            )
         }
     }
 }

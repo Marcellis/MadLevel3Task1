@@ -3,45 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/StartFragment">
+    app:startDestination="@id/startFragment">
 
     <fragment
-        android:id="@+id/StartFragment"
-        android:name="nl.hva.level3task1.StartFragment"
-        android:label="start_fragment"
-        tools:layout="@layout/fragment_start">
+        android:id="@+id/startFragment"
+        android:name="com.example.madlevel3task1.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
         <action
-            android:id="@+id/action_StartFragment_to_RatingFragment"
-            app:destination="@id/RatingFragment"
-            app:enterAnim="@anim/fragment_open_enter" />
+            android:id="@+id/action_startFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
     </fragment>
     <fragment
-        android:id="@+id/RatingFragment"
-        android:name="nl.hva.level3task1.RatingFragment"
-        android:label="rating_fragment"
-        tools:layout="@layout/fragment_rating">
-
+        android:id="@+id/ratingFragment"
+        android:name="com.example.madlevel3task1.RatingFragment"
+        android:label="fragment_rating"
+        tools:layout="@layout/fragment_rating" >
         <action
-            android:id="@+id/action_RatingFragment_to_StartFragment"
-            app:destination="@id/StartFragment" />
-
+            android:id="@+id/action_ratingFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
         <action
-            android:id="@+id/action_RatingFragment_to_SummaryFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:destination="@id/SummaryFragment">
-        </action>
-
+            android:id="@+id/action_ratingFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SummaryFragment"
-        android:name="nl.hva.level3task1.SummaryFragment"
+        android:id="@+id/summaryFragment"
+        android:name="com.example.madlevel3task1.SummaryFragment"
         android:label="fragment_summary"
         tools:layout="@layout/fragment_summary" >
-
         <action
-            android:id="@+id/action_SummaryFragment_to_StartFragment"
+            android:id="@+id/action_summaryFragment_to_startFragment"
             app:popUpToInclusive="true"
-            app:popUpTo="@id/StartFragment"
-            app:destination="@id/StartFragment" />
+            app:popUpTo="@id/startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
 </navigation>
