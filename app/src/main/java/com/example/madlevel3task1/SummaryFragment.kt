@@ -6,7 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_summary.*
+import com.example.madlevel3task1.databinding.FragmentStartBinding
+import com.example.madlevel3task1.databinding.FragmentSummaryBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +23,9 @@ const val ARG_GAME_RATING = "arg_game_rating"
  * create an instance of this fragment.
  */
 class SummaryFragment : Fragment() {
+
+    private var _binding: FragmentSummaryBinding? = null
+    private val binding get() = _binding!!
     // TODO: Rename and change types of parameters
 //    private var param1: String? = null
 //    private var param2: String? = null
@@ -37,9 +41,9 @@ class SummaryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_summary, container, false)
+    ): View {
+        _binding = FragmentSummaryBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
 //    companion object {
@@ -68,10 +72,10 @@ class SummaryFragment : Fragment() {
         val gameName = arguments?.getString(ARG_GAME_NAME)
         val gameRating = arguments?.getFloat(ARG_GAME_RATING)
 
-        txt_summary.text =
+        binding.txtSummary.text =
             String.format("You rated %s with %.1f stars! Thanks?", gameName, gameRating)
 
-        btn_start_over.setOnClickListener {
+        binding.btnStartOver.setOnClickListener {
             findNavController().navigate(R.id.action_summaryFragment_to_startFragment)
 
         }
