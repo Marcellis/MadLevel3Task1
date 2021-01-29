@@ -34,6 +34,11 @@ class RatingFragment : Fragment() {
         showRandomAssessableGame()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun navigateToSummary() {
 
         val args = Bundle()
